@@ -1,19 +1,10 @@
-// Requireds
-const fs = require('fs');
-// const express = require('express');
-// const fs = require('./fs');
+const { crearArchivo } = require('./multiplicar/multiplicar')
 
-let base = 2;
-let data = '';
+let base = '3';
 
-for(let i = 1; i<16; i++){
-    data += `${base} * ${i} = ${base*i}\n`;
-}
-
-fs.writeFile(`tablas/T-${base}.txt`, data, (err) => {
-  if (err) throw err;
-  console.log(`The file T-${base} has been created`);
-});
+crearArchivo(base)
+    .then( archivo => console.log(`Archivo creado: ${ archivo }`))
+    .catch( err => console.log(err))
 
 
 
