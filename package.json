@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-ud-c1-t02-node",
+  "version": "1.0.0",
+  "description": "Aplicación de línea de comandos",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-jv/NodeJS-ud-C1-T02-Node.git"
+  },
+  "author": "dev-jv",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dev-jv/NodeJS-ud-C1-T02-Node/issues"
+  },
+  "homepage": "https://github.com/dev-jv/NodeJS-ud-C1-T02-Node#readme",
+  "dependencies": {
+    "yargs": "^16.1.1"
+  }
+}
