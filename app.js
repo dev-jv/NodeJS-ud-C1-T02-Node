@@ -14,9 +14,19 @@
 // .then( archivo => console.log(`Archivo creado: ${ archivo }`))
 // .catch( err => console.log(err))
 
-// --------------------------------------------------------------------------------- <> yargs > 'node app listar -b x -l y'
+// --------------------------------------------------------------------------------- <> yargs > 'node app listar/crear -b x -l y'
 const argv = require('yargs')
-                .command('listar', 'Imprime en consola la tabla de multiplicar', { 
+                .command('listar', 'Imprime en consola la tabla', { 
+                    base : {
+                        demand: true,
+                        alias: 'b', 
+                    },
+                    limite: {
+                        alias: 'l',
+                        default: 10,
+                    }
+                })
+                .command('crear', 'Genera un archivo .txt con la tabla', { 
                     base : {
                         demand: true,
                         alias: 'b', 
@@ -29,8 +39,25 @@ const argv = require('yargs')
                 .help()
                 .argv;
 
-const { crearArchivo } = require('./multiplicar/multiplicar');
 
+const { crearArchivo, listarTabla } = require('./multiplicar/multiplicar');
+let comando = argv._[0];
+switch (comando) {
+    case 'listar':
+        console.log('Listar');
+        listarTabla(argv.base, argv.limite)
+            .then( x => console.log(x))
+            .catch( e => console.log(e))
+        break;
+    case 'crear':
+        console.log('Crear');
+        crearArchivo(argv.base, argv.limite)
+            .then( archivo => console.log(`Archivo creado: ${ archivo }`))
+            .catch( err => console.log(err))
+        break;
+    default:
+        console.log('Comando no reconocido');
+}
 
 // let argv2 = process.argv;
 
@@ -41,9 +68,18 @@ console.log( ' Base', argv.base);
 console.log( ' Limite', argv.limite);
 
 
+
+
+
+
 // 'node app listar --base x --limite y'
 // 'node app listar -b x -l y'
 // 'node app listar --help
+// 'node app --help
+
+// 'node app crear --base x --limite y'
+// 'node app crear -b x -l y'
+// 'node app crear --help
 // 'node app --help
 
 
