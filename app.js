@@ -15,30 +15,34 @@
 // .catch( err => console.log(err))
 
 // --------------------------------------------------------------------------------- <> yargs > 'node app listar/crear -b x -l y'
-const argv = require('yargs')
-                .command('listar', 'Imprime en consola la tabla', { 
-                    base : {
-                        demand: true,
-                        alias: 'b', 
-                    },
-                    limite: {
-                        alias: 'l',
-                        default: 10,
-                    }
-                })
-                .command('crear', 'Genera un archivo .txt con la tabla', { 
-                    base : {
-                        demand: true,
-                        alias: 'b', 
-                    },
-                    limite: {
-                        alias: 'l',
-                        default: 10,
-                    }
-                })
-                .help()
-                .argv;
 
+// // ------------------------- <> import en config/yargs.js
+//     const argv = require('yargs')
+//                     .command('listar', 'Imprime en consola la tabla', { 
+//                         base : {
+//                             demand: true,
+//                             alias: 'b', 
+//                         },
+//                         limite: {
+//                             alias: 'l',
+//                             default: 10,
+//                         }
+//                     })
+//                     .command('crear', 'Genera un archivo .txt con la tabla', { 
+//                         base : {
+//                             demand: true,
+//                             alias: 'b', 
+//                         },
+//                         limite: {
+//                             alias: 'l',
+//                             default: 10,
+//                         }
+//                     })
+//                     .help()
+//                     .argv;
+// //
+
+const argv = require('./config/yargs').argv;
 
 const { crearArchivo, listarTabla } = require('./multiplicar/multiplicar');
 let comando = argv._[0];
@@ -71,7 +75,7 @@ console.log( ' Limite', argv.limite);
 
 
 
-
+///// ----------------------------------- cmds
 // 'node app listar --base x --limite y'
 // 'node app listar -b x -l y'
 // 'node app listar --help
