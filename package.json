@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/dev-jv/NodeJS-ud-C1-T02-Node#readme",
   "dependencies": {
+    "colors": "^1.4.0",
     "yargs": "^16.1.1"
   }
 }

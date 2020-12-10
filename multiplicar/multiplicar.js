@@ -1,6 +1,8 @@
 // Requireds
 const { rejects } = require('assert');
 const fs = require('fs');
+const colors = require('colors');
+
 
 let listarTabla = (base, limite = 10) => {
     return new Promise((resolve, reject)=>{
@@ -13,6 +15,8 @@ let listarTabla = (base, limite = 10) => {
                 return;
             }
         }
+        
+        console.log('---------------------------'.green);
         
         let data = '';
 
